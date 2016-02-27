@@ -2,9 +2,7 @@ def insertion(arr):
     for i in range(1, len(arr)):
         ctr = i
         while ctr > 0 and arr[ctr] < arr[ctr - 1]:
-            temp = arr[ctr - 1]
-            arr[ctr - 1] = arr[ctr]
-            arr[ctr] = temp
+            arr[ctr - 1], arr[ctr] = arr[ctr], arr[ctr - 1]
             ctr -= 1
 
 
