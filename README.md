@@ -1,1 +1,1 @@
-# algorithms-and-datastructures
+# Algorithms and Data StructuresAs I work through several algorithms books I'll be implementing various algos and ds in multiple languages.  This repo will serve as a refernece for those impls.
