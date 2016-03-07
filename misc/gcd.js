@@ -6,13 +6,13 @@ function gcd_rec(x, y) {
 }
 
 function gcd_rec_mod(x, y) {
-    if (y == 0) return x;
+    if (y === 0) return x;
     return x > y ? gcd_rec_mod(y, x % y) : gcd_rec(y, x);
 }
 
 function gcd_itr_while(x, y) {
     if (x > y) return gcd_itr_while(y, x);
-    while (y != 0) {
+    while (y !== 0) {
         [x, y] = [y, x % y];
     }
     return x;
