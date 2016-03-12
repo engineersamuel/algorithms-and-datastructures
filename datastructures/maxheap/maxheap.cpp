@@ -71,8 +71,27 @@ void MaxHeap::up(unsigned long k) {
     }
 }
 
+void MaxHeap::sort() {
+
+    // Start at N and work backwards
+    auto idx = this->N;
+
+    // For each decrementing idx push the end onto the arr
+    while (idx > 1) {
+        swap(this->arr[1], this->arr[idx--]);
+        this->down(idx);
+    }
+}
+
 void MaxHeap::print() {
     for (auto i = 1; i <= N; i++) {
+        cout << this->arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void MaxHeap::printReverse() {
+    for (auto i = N; i >= 1; i--) {
         cout << this->arr[i] << " ";
     }
     cout << endl;
@@ -98,6 +117,10 @@ int main() {
     maxHeap.print();
     cout << "removeMax:" << maxHeap.removeMax() << endl;
     maxHeap.print();
+
+    cout << "Sorting: " << endl;
+    maxHeap.sort();
+    maxHeap.printReverse();
 
     // Final ordr will be P, M, L, A, E, E
     return 0;

@@ -11,7 +11,9 @@ public:
     void insert(char);
     char removeMax();
     void up(unsigned long);
+    void sort();
     void print();
+    void printReverse();
 };
 
 #endif //EPI_MAXHEAP_HPP
