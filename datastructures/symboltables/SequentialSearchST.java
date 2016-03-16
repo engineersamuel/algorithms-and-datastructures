@@ -36,8 +36,8 @@ public class SequentialSearchST<Key, Value> {
         st.put("b", 1);
         st.put("c", 2);
 
-        System.out.println("a: " + st.get("a"));
-        System.out.println("a: " + st.get("b"));
         System.out.println("a: " + st.get("c"));
+        System.out.println("a: " + st.get("b"));
+        System.out.println("a: " + st.get("a"));
     }
 }
