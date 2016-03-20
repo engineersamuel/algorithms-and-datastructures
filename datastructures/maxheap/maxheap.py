@@ -51,9 +51,12 @@ class MaxHeap:
             # decrement the size
             self.N -= 1
 
-            # run max heapify
-            for i in range(self.N/2, 0, -1):
-                self.down(i)
+            # Since just the top was swappd with the end, sink down the top now to the right place
+            self.down(1)
+
+            #  I don't believe running run max heapify fully here is necessary
+            #for i in range(self.N/2, 0, -1):
+            #    self.down(i)
 
 
 if __name__ == '__main__':
