@@ -8,7 +8,8 @@ public class Graph {
     private List<Integer>[] adj;
 
     public Graph(int V) {
-        this.V = V; this.E = 0;
+        this.V = V;
+        this.E = 0;
         adj = (List<Integer>[]) new ArrayList[V];
         //adj = new ArrayList<Integer>[V];
         for (int v = 0; v < V; v++) {
@@ -26,7 +27,7 @@ public class Graph {
 
     public void addEdge(int v, int w) {
         adj[v].add(w);
-        adj[w].add(v);
+//        adj[w].add(v);
         E++;
     }
 
@@ -62,24 +63,37 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        Graph g = new Graph(13);
+        // V E
+        Graph g = new Graph(6);
         g.addEdge(0, 5);
-        g.addEdge(4, 3);
+        g.addEdge(2, 4);
+        g.addEdge(2, 3);
+        g.addEdge(1, 2);
         g.addEdge(0, 1);
-        g.addEdge(9, 12);
-        g.addEdge(6, 4);
-        g.addEdge(5, 4);
+        g.addEdge(3, 4);
+        g.addEdge(3, 5);
         g.addEdge(0, 2);
-        g.addEdge(11, 12);
-        g.addEdge(9, 10);
-        g.addEdge(0, 6);
-        g.addEdge(7, 8);
-        g.addEdge(9, 11);
-        g.addEdge(5, 3);
+
         System.out.println(g);
-        System.out.println("Testing connectedness for v: " + 0);
-        g.testConnectedness(0);
-        System.out.println("Testing connectedness for v: " + 9);
-        g.testConnectedness(9);
+        int s = 0;
+        System.out.println("Testing connectedness for v: " + s);
+        g.testConnectedness(s);
+        s = 3;
+        System.out.println("Testing connectedness for v: " + s);
+        g.testConnectedness(s);
+
+        s = 0;
+        System.out.println("Testing paths to " + s);
+        Paths path = new DFSPathFinder(g, s);
+        for (int v = 0; v < g.V(); v++) {
+            if (path.hasPathTo(v)) {
+                System.out.print(s + " to " + v + ": ");
+                for (int x : path.pathTo(v)) {
+                    if (x == s) System.out.print(x);
+                    else        System.out.print(x + "-");
+                }
+                System.out.println();
+            }
+        }
     }
 }
